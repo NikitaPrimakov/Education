@@ -11,3 +11,16 @@
 # 16 17 18 19 20 21
 # ...
 
+count = 0
+num = int(input("Введите натуральное число: "))
+
+for i in range(1, num + 1):
+
+    print(i)
+    
+    for j in range(i + 1, num):
+
+        print(j,j + 1)
+
+    break
+        
