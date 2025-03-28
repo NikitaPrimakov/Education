@@ -151,3 +151,15 @@ else:
             print(summThree)
 
 # От Python академии
+
+n = int(input())
+
+while n > 9:
+    new_n = 0
+    while n > 0:
+        new_n += n % 10
+        n //= 10
+    
+    n = new_n
+    
+print(n)
