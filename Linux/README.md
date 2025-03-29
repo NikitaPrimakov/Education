@@ -723,7 +723,8 @@ mail:x:8:8:mail:/var/mail:/bin/sh
 news:x:9:9:news:/var/spool/news:/bin/sh
 paul@laika:~$
 ```
-Утилита head также может использоваться для вывода первых n строк файла.
+
+Утилита ```head``` также может использоваться для вывода первых n строк файла.
 
 ```
 paul@laika:~$ head -4 /etc/passwd
