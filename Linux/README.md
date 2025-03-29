@@ -6,6 +6,9 @@
 
 3. [Глава 3. Работа с файлами](https://github.com/NikitaPrimakov/Education/tree/main/Linux#%D0%B3%D0%BB%D0%B0%D0%B2%D0%B0-3-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0-%D1%81-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0%D0%BC%D0%B8 "Работа с файлами")
 
+4. [Глава 4. Работа с содержимым файлов](https:// "Работа с содержимым файлов")
+
+
 # Глава 1. Страницы руководств man
 
 ## Команда man $команда
@@ -699,3 +702,34 @@ one.backup  three.backup  two.backup
 ONE.backup  three.backup  two.backup
 [paul@centos7 ~]$
 ```
+
+# Глава 4. Работа с содержимым файлов
+
+## Утилита head
+
+Вы можете использовать утилиту head для вывода первых десяти строк файла.
+
+```
+paul@laika:~$ head /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/bin/sh
+man:x:6:12:man:/var/cache/man:/bin/sh
+lp:x:7:7:lp:/var/spool/lpd:/bin/sh
+mail:x:8:8:mail:/var/mail:/bin/sh
+news:x:9:9:news:/var/spool/news:/bin/sh
+paul@laika:~$
+```
+Утилита head также может использоваться для вывода первых n строк файла.
+
+```
+paul@laika:~$ head -4 /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/bin/sh
+bin:x:2:2:bin:/bin:/bin/sh
+sys:x:3:3:sys:/dev:/bin/sh
+```
+
