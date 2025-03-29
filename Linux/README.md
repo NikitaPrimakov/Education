@@ -734,3 +734,9 @@ bin:x:2:2:bin:/bin:/bin/sh
 sys:x:3:3:sys:/dev:/bin/sh
 ```
 
+Кроме того, утилита ```head``` может использоваться для вывода первых n байт файла.
+
+```
+paul@laika:~$ head -c4 /etc/passwd
+rootpaul@laika:~$
+```
