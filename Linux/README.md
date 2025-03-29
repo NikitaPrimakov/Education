@@ -572,3 +572,122 @@ paul@debian7:~$ ls dir42/
 file42  file42.copy  SinkoDeMayo
 ```
 
+____Команда ```cp -i```____
+
+Для предотвращения перезаписи существующих файлов в ходе использования утилиты cp следует использовать параметр -i (для активации интерактивного режима копирования).
+
+```
+paul@debian7:~$ cp SinkoDeMayo file42
+paul@debian7:~$ cp SinkoDeMayo file42
+paul@debian7:~$ cp -i SinkoDeMayo file42
+cp: переписать "file42"? n
+paul@debian7:~$
+```
+
+____Утилита ```mv```____
+
+Переименование файлов с помощью утилиты ```mv```
+
+Утилита mv используется для переименования файлов или для перемещения файлов в другие директории.
+
+```
+paul@debian7:~$ ls
+dir33  dir42  file42  file42.copy  SinkoDeMayo
+paul@debian7:~$ mv file42 file33
+paul@debian7:~$ ls
+dir33  dir42  file33  file42.copy  SinkoDeMayo
+paul@debian7:~$
+```
+
+В том случае, если вам необходимо переименовать один файл,утилита mv является предпочтительным инструментом.
+
+Переименование директорий с помощью утилиты mv
+
+Эта же утилита mv может быть использована и для переименования директорий.
+
+```
+paul@debian7:~$ ls -l
+итого 8
+drwxr-xr-x 2 paul paul 4096 окт 15 09:36 dir33
+drwxr-xr-x 2 paul paul 4096 окт 15 09:36 dir42
+-rw-r--r-- 1 paul paul    0 окт 15 09:38 file33
+-rw-r--r-- 1 paul paul    0 окт 15 09:16 file42.copy
+-rw-r--r-- 1 paul paul    0 май  5  2005 SinkoDeMayo
+paul@debian7:~$ mv dir33 backup
+paul@debian7:~$ ls -l
+итого 8
+drwxr-xr-x 2 paul paul 4096 окт 15 09:36 backup
+drwxr-xr-x 2 paul paul 4096 окт 15 09:36 dir42
+-rw-r--r-- 1 paul paul    0 окт 15 09:38 file33
+-rw-r--r-- 1 paul paul    0 окт 15 09:16 file42.copy
+-rw-r--r-- 1 paul paul    0 май  5  2005 SinkoDeMayo
+paul@debian7:~$
+```
+
+____Команда ```mv -i```____
+
+Утилита mv поддерживает параметр ```-i``` по аналогии с утилитами cp и rm.
+
+В примере ниже показано, как при использовании команды mv -i запрашивается подтверждение перезаписи существующего файла.
+
+```
+paul@debian7:~$ mv -i file33 SinkoDeMayo
+mv: переписать "SinkoDeMayo"? no
+paul@debian7:~$
+```
+
+## Утилита rename
+
+Об утилите rename
+
+Утилита rename является одним из редких случаев, когда в рамках книги "Фундаментальные основы Linux" приходится делать разделение между дистрибутивами Linux. Практически каждая из описанных в данной книге утилит работает практически на каждом компьютере под управлением Linux. Но реализации утилиты rename в различных дистрибутивах отличаются.
+
+Следует пытаться использовать утилиту mv всегда, когда вам необходимо переименовать несколько файлов.
+
+____Утилита rename в дистрибутиве Debian/Ubuntu____
+
+Утилита rename в дистрибутиве Debian имеет сложный синтаксис (используются регулярные выражения) для единовременного переименования множества файлов.
+
+Ниже приведен пример использования утилиты rename, с помощью которой у всех файлов с расширением .txt производится замена расширения на .png.
+
+```
+paul@debian7:~/test42$ ls
+abc.txt  file33.txt  file42.txt
+paul@debian7:~/test42$ rename 's/\.txt/\.png/' *.txt
+paul@debian7:~/test42$ ls
+abc.png  file33.png  file42.png
+```
+
+Во втором примере производится замена всех (первых) вхождений слов "file" на "document" во всех файлах с расширением .png.
+
+```
+paul@debian7:~/test42$ ls
+abc.png  file33.png  file42.png
+paul@debian7:~/test42$ rename 's/file/document/' *.png
+paul@debian7:~/test42$ ls
+abc.png  document33.png  document42.png
+paul@debian7:~/test42$
+```
+
+____Утилита rename в дистрибутиве CentOS/RHEL/Fedora____
+
+В Red Hat Enterprise Linux синтаксис утилиты rename немного отличается. В первом примере, представленном ниже, осуществляется переименование всех файлов с расширением .conf (*.conf) путем замены всех вхождений .conf на .backup.
+
+```
+[paul@centos7 ~]$ touch one.conf two.conf three.conf
+[paul@centos7 ~]$ rename .conf .backup *.conf
+[paul@centos7 ~]$ ls
+one.backup  three.backup  two.backup
+[paul@centos7 ~]$
+```
+
+Во втором примере производится переименование всех файлов (*) путем замены всех вхождений one на ONE.
+
+```
+[paul@centos7 ~]$ ls
+one.backup  three.backup  two.backup
+[paul@centos7 ~]$ rename one ONE *
+[paul@centos7 ~]$ ls
+ONE.backup  three.backup  two.backup
+[paul@centos7 ~]$
+```
