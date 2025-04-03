@@ -158,27 +158,21 @@ print(most_common)
 # строке, разделённые символом пробела. Если буква «f» в данной строке не встречается, следует вывести «NO» 
 # (без кавычек).
 
-str_one = input("Enter your string: ")
-
-flag = False
+sstr_one = input("Enter your string: ")
 
 if str_one.count('f') == 1:
     
     index = str_one.find('f')
-    flag = True
+    print(index)
 
 elif str_one.count('f') > 1:
 
     index_find = str_one.find('f')
     index_rfind = str_one.rfind('f')
-    flag = True
-
-
-if flag and str_one.count('f') == 1:
-    print(index)
-elif flag and str_one.count('f') > 1:
     print(index_find, index_rfind)
+
 else:
+
     print("NO")
 
 # альтернатива

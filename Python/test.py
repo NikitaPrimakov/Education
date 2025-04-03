@@ -5,35 +5,17 @@
 
 str_one = input("Enter your string: ")
 
-flag = False
-
 if str_one.count('f') == 1:
     
     index = str_one.find('f')
-    flag = True
+    print(index)
 
 elif str_one.count('f') > 1:
 
     index_find = str_one.find('f')
     index_rfind = str_one.rfind('f')
-    flag = True
-
-
-if flag and str_one.count('f') == 1:
-    print(index)
-elif flag and str_one.count('f') > 1:
     print(index_find, index_rfind)
+
 else:
+
     print("NO")
-
-# альтернатива
-
-s = input()
-cnt = s.count("f")
-
-if cnt == 0:
-    print("NO")
-elif cnt == 1:
-    print(s.index("f"))
-else:
-    print(s.index("f"), s.rindex("f"))
