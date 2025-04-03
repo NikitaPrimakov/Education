@@ -9,7 +9,14 @@ str_one = input("Enter your string: ")
 
 max_count = 0
 
+str_two = ''
 
 for i in str_one:
 
-    print(str_one.count(i))
+    if str_one.count(i) >= max_count:
+
+        max_count = str_one.count(i)
+        str_two = i
+
+print(max_count)
+print(str_two)
