@@ -102,4 +102,3 @@ for i in range(n):
         list_one.append(str_one)
 
 print(*list_one, sep='\n')
-
