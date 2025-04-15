@@ -14,8 +14,6 @@ for i in numbers:
   list_one.append(int(i) * int(i))
 
 print(sum(list_one))
-
-
 #--------------------------------------------------------------------------------------------------
 
 
@@ -45,7 +43,6 @@ for i in range(n):
 print(*list_one, sep='\n')
 print()
 print(*list_two, sep='\n')
-
 #--------------------------------------------------------------------------------------------------
 
 
@@ -75,8 +72,6 @@ list_one.remove(max(list_one))
 list_one.remove(min(list_one))
 
 print(*list_one, sep='\n')
-
-
 #--------------------------------------------------------------------------------------------------
 
 
@@ -102,3 +97,39 @@ for i in range(n):
         list_one.append(str_one)
 
 print(*list_one, sep='\n')
+#--------------------------------------------------------------------------------------------------
+
+
+# Упражнение 5
+
+# Google search - 1
+
+# На вход программе подаются натуральное число n, затем n строк, затем ещё одна строка – поисковый 
+# запрос. Напишите программу, которая выводит все введённые строки, в которых встречается поисковый 
+# запрос.
+
+n = int(input())
+
+list_one = list()
+
+list_two = list()
+
+for i in range(n):
+
+    str_one = input()
+
+
+    list_one.append(str_one)
+
+
+str_two = input()
+
+for i in range(len(list_one)):
+
+    if str_two.lower() in list_one[i].lower():
+
+        list_two.append(list_one[i])
+    
+
+print(*list_two, sep='\n')
+
