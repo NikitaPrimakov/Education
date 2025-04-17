@@ -132,4 +132,39 @@ for i in range(len(list_one)):
     
 
 print(*list_two, sep='\n')
+#--------------------------------------------------------------------------------------------------
 
+
+# Упражнение 6
+
+# Negatives, Zeros and Positives
+
+# На вход программе подаются натуральное число n, а затем n целых чисел. Напишите программу, которая 
+# сначала выводит все отрицательные числа, затем нули, а затем все положительные числа, каждое на 
+# отдельной строке. Числа должны быть выведены в том же порядке, в котором они были введены.
+
+n = int(input("Enter n: "))
+
+list_one = list()
+list_two = list()
+list_three = list()
+
+for i in range(n):
+
+    num = int(input("Enter your num: "))
+
+    if num > 0:
+
+        list_one.append(num)
+
+    elif num == 0:
+
+        list_two.append(num)
+
+    else:
+
+        list_three.append(num)
+
+print(*list_three, sep='\n')
+print(*list_two, sep='\n')
+print(*list_one, sep='\n')
