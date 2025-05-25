@@ -1,8 +1,5 @@
+model = int(input())
 
-list1 = input().split()
-
-for i in range(len(list1)):
-
-    list1[i] = int(list1[i])
-
-print(list1)
+while model != 100 and model != 200 and model != 300:
+    print('Допустимыми номерами моделей являются 100, 200 или 300.')
+    model = int(input())
