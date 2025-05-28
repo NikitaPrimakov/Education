@@ -94,6 +94,3 @@ for i in range(len(number)):
     number[i] = int(number[i])
 
 print(compute_average(number))
-
-
-
