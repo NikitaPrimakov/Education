@@ -273,3 +273,28 @@ text = input()
 
 # print(convert_to_python_case('ThisIsCamelCased'))
 # print(convert_to_python_case('IsPrimeNumber'))
+
+
+def convert_to_python_case(text):
+    
+    string_new = ''
+    string_new += text[0].lower()
+
+    for i in range(0, len(text)):
+
+        if text[i].isupper() and i != 0:
+            string_new += '_' + text[i].lower()
+
+        if text[i].islower():
+            string_new += text[i]
+    
+        if text[i] in '0123456789':
+            string_new += text[i]
+
+    return string_new
+
+
+text = input()
+print(convert_to_python_case(text))
+
+
