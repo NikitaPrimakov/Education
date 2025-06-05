@@ -1,7 +1,7 @@
 # Magic ball 8
 import random
 import time
-import math
+
 
 def welcome_func():
 
@@ -114,7 +114,7 @@ def start_game():
                 print("Запуск...")
             else:
                 break
-            
+
         goodbye()
 
 
