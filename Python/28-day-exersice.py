@@ -81,3 +81,25 @@ def solve(a, b, c):
 
 a, b, c = int(input()), int(input()), int(input())
 print(solve(a, b, c))
+#-------------------------------------------
+
+# Упражнение 4
+
+# Вывод уникальных слов
+
+def unique(answer_text: str) -> str:
+
+    list_one = []
+    answer_split = answer_text.split(' ')
+    for i in answer_split:
+        count_of_word = answer_split.count(i)
+        if count_of_word < 2:
+            list_one.append(i)
+        else:
+            continue
+    return list_one
+    
+
+answer_text = input()
+unique_word = unique(answer_text)
+print(*unique_word, sep=' ')
