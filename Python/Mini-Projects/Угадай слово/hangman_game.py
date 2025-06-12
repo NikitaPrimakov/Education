@@ -69,14 +69,101 @@ def guessing_a_word():
     time.sleep(3)
     print("Ухты! Очень интересное слово!")
     random_word = random.choice(LIST_OF_WORDS).upper()
-    word_completion = '_' * len(random_word)  # строка, содержащая символы _ на каждую букву задуманного слова
+    word_completion = '_' * len(random_word)          # строка, содержащая символы _ на каждую букву задуманного слова
     time.sleep(1)
     print(f"\nА вот и само слово: {word_completion}. Оно состоит из {len(random_word)} букв.")
     print("У тебя есть 6 попыток, чтобы его отгадать!")
-    return random_word
+    return random_word, word_completion
 
-def hangman_game(random_word):
-    pass
+def hangman_game(random_word, word_completion):
+    
+    word_completion_list = list(word_completion)
+
+    random_word_list = list(random_word)
+
+    tries = 6
+
+    while tries != 0:
+
+        some_letter = input("\nВведите букву, которая может быть в данном слове: ").upper()
+
+        if some_letter in random_word:
+            for i in range(len(random_word_list)):
+                if some_letter == random_word_list[i]:
+                    word_completion_list[i] = some_letter
+                    print(*word_completion_list)
+            if word_completion_list == random_word_list:
+                break
+        elif some_letter not in random_word:
+            tries -= 1
+            if tries == 5:
+                print(                '''
+                --------
+                |      |
+                |      O
+                |    
+                |      
+                |     
+                -
+                ''')
+
+            elif tries == 4:
+                print(                '''
+                --------
+                |      |
+                |      O
+                |      |
+                |      |
+                |     
+                -
+                ''')
+
+            elif tries == 3:
+                print(                '''
+                --------
+                |      |
+                |      O
+                |     \\|
+                |      |
+                |     
+                -
+                ''')
+
+            elif tries == 2:
+                print(                '''
+                --------
+                |      |
+                |      O
+                |     \\|/
+                |      |
+                |      
+                -
+                ''')
+
+            elif tries == 1:
+                print(                '''
+                --------
+                |      |
+                |      O
+                |     \\|/
+                |      |
+                |     / 
+                -
+                ''')
+
+            elif tries == 0:
+                print(                '''
+                --------
+                |      |
+                |      O
+                |     \\|/
+                |      |
+                |     / \\
+                -
+                ''')
+
+                print("Ты проиграл!\n")
+                return False
         
 def continue_game():
     time.sleep(1)
@@ -97,9 +184,9 @@ def play_game():
 
     while True:
 
-        random_word = guessing_a_word()
+        random_word, word_completion = guessing_a_word()
         
-        hangman_game(random_word)
+        hangman_game(random_word, word_completion)
 
         if continue_game():
             print(" Отлично! Начинаем игру заново.")
