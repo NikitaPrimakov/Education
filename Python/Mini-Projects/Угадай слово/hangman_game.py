@@ -189,19 +189,19 @@ def play_game():
         hangman_game(random_word, word_completion)
 
         if continue_game():
-            print(" Отлично! Начинаем игру заново.")
+            print("Отлично! Начинаем игру заново.")
             time.sleep(1)
-            print(" Загрузка...5%")
+            print("Загрузка...5%")
             time.sleep(1)
-            print(" Загрузка...25%")
+            print("Загрузка...25%")
             time.sleep(1)
-            print(" Загрузка...35%")
+            print("Загрузка...35%")
             time.sleep(1)
-            print(" Загрузка...47%")
+            print("Загрузка...47%")
             time.sleep(1)
-            print(" Загрузка...70%")
+            print("Загрузка...70%")
             time.sleep(1)
-            print(" Загрузка...91%")
+            print("Загрузка...91%")
         else:
             break
 
