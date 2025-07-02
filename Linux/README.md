@@ -848,3 +848,65 @@ ____Корневая директория /____
 bin   dev  home  media  mnt  proc  sbin     srv  tftpboot  usr
 boot  etc  lib   misc   opt  root  selinux  sys  tmp       var
 ```
+
+___Директории для хранения бинарных файлов___
+
+Бинарные файлы являются файлами, содержащими скомпилированный исходный код (или машинный код). Бинарные файлы могут исполняться на компьютере. Иногда бинарные файлы также называются исполняемыми файлами.
+
+__Директория /bin__
+
+Директория ```/bin``` содержит бинарные файлы, которые могут использоваться всеми пользователями. В соответствии со спецификацией FHS, директория /bin должна содержать исполняемые файлы /bin/cat и /bin/date (помимо других исполняемых файлов).
+
+В примере ниже вы можете увидеть список исполняемых файлов, являющихся реализациями таких команд, как cat, cp, cpio, date, dd, echo, grep и.т.д. Многие из упомянутых команд будут рассмотрены в рамках данной книги.
+
+```
+paul@laika:~$ ls /bin
+archdetect       egrep             mt               setupcon
+autopartition    false             mt-gnu           sh
+bash             fgconsole         mv               sh.distrib
+bunzip2          fgrep             nano             sleep
+bzcat            fuser             nc               stralign
+bzcmp            fusermount        nc.traditional   stty
+bzdiff           get_mountoptions  netcat           su
+bzegrep          grep              netstat          sync
+bzexe            gunzip            ntfs-3g          sysfs
+bzfgrep          gzexe             ntfs-3g.probe    tailf
+bzgrep           gzip              parted_devices   tar
+bzip2            hostname          parted_server    tempfile
+bzip2recover     hw-detect         partman          touch
+bzless           ip                partman-commit   true
+bzmore           kbd_mode          perform_recipe   ulockmgr
+cat              kill              pidof            umount
+```
+
+__Другие директории /bin__
+
+Вы можете обнаружить поддиректорию /bin во многих других директориях. Например, пользователь с именем serena может разместить свои собственные приложения в поддиректории /home/serena/bin.
+
+Файлы некоторых приложений, обычно в случае установки путем непосредственной сборки из исходного кода, устанавливаются в директорию /opt. К примеру, при установке сервера samba для хранения бинарных файлов может быть использована поддиректория /opt/samba/bin.
+
+__Директория /sbin__
+
+Директория ```/sbin``` содержит бинарные файлы, предназначенные для настройки операционной системы. Многие из бинарных файлов для настройки системы требуют наличия привилегий пользователя root для выполнения определенных задач.
+
+В примере ниже приведен список бинарных файлов для настройки системы, предназначенных для изменения IP-адреса, работы с разделами жестких дисков и создания файловой системы ext4.
+
+```
+paul@ubu1010:~$ ls -l /sbin/ifconfig /sbin/fdisk /sbin/mkfs.ext4
+-rwxr-xr-x 1 root root 97172 2011-02-02 09:56 /sbin/fdisk
+-rwxr-xr-x 1 root root 65708 2010-07-02 09:27 /sbin/ifconfig
+-rwxr-xr-x 5 root root 55140 2010-08-18 18:01 /sbin/mkfs.ext4
+```
+
+__Директория /lib__
+
+Бинарные файлы из директорий /bin и /sbin обычно используют разделяемые библиотеки, расположенные в директории /lib. В примере ниже приведен список некоторых файлов из директории /lib.
+
+```
+paul@laika:~$ ls /lib/libc*
+/lib/libc-2.5.so     /lib/libcfont.so.0.0.0  /lib/libcom_err.so.2.1    
+/lib/libcap.so.1     /lib/libcidn-2.5.so     /lib/libconsole.so.0      
+/lib/libcap.so.1.10  /lib/libcidn.so.1       /lib/libconsole.so.0.0.0  
+/lib/libcfont.so.0   /lib/libcom_err.so.2    /lib/libcrypt-2.5.so
+```
+
