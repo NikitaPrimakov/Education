@@ -970,3 +970,30 @@ __Поддиректория /etc/init.d/__
 
 Во многих дистрибутивах Unix/Linux имеется директория /etc/init.d, которая содержит сценарии для запуска и остановки демонов. Эта поддиректория может исчезнуть в процессе перехода дистрибутивов Linux на системы инициализации, которые заменят старую систему инициализации init, используемую для запуска всех демонов.
 
+__Поддиректория /etc/X11/__
+
+Управление системой вывода графики осуществляется средствами программного обеспечения от организации X.org Foundation (а именно, сервера оконной системы X Window System или просто X). Файл конфигурации для вашего сервера оконной системы носит имя /etc/X11/xorg.conf.
+
+__Поддиректория /etc/skel/__
+
+Содержимое директории каркаса /etc/skel копируется в домашнюю директорию при создании учетной записи пользователя. Она обычно содержит такие скрытые файлы, как сценарий .bashrc.
+
+__Поддиректория /etc/sysconfig/__
+
+Данная директория, не упомянутая в спецификации FHS, содержит большое количество файлов конфигурации компонентов дистрибутива Red Hat Enterprise Linux. Впоследствии мы будем более подробно рассматривать некоторые из этих файлов. В примере ниже приведен список файлов директории /etc/sysconfig дистрибутива RHELv4u4 в случае установки всех связанных с данной директорией программных компонентов.
+
+```
+paul@RHELv4u4:~$ ls /etc/sysconfig/
+apmd         firstboot     irda              network      saslauthd
+apm-scripts  grub          irqbalance        networking   selinux
+authconfig   hidd          keyboard          ntpd         spamassassin
+autofs       httpd         kudzu             openib.conf  squid
+bluetooth    hwconf        lm_sensors        pand         syslog
+clock        i18n          mouse             pcmcia       sys-config-sec
+console      init          mouse.B           pgsql        sys-config-users
+crond        installinfo   named             prelink      sys-logviewer
+desktop      ipmi          netdump           rawdevices   tux
+diskdump     iptables      netdump_id_dsa    rhn          vncservers
+dund         iptables-cfg  netdump_id_dsa.p  samba        xinetd
+paul@RHELv4u4:~$
+```
