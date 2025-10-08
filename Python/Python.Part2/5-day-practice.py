@@ -33,19 +33,22 @@ print(*result, sep='\n')
 
 
 #-----------------------------------
-
 # Задача №2
 
 # Список по образцу 2
 # На вход программе подается число n. Напишите программу, которая создает и выводит построчно 
 # вложенный список, состоящий из n списков [[1], [1, 2], [1, 2, 3], ..., [1, 2, ..., n]].
 
-
 n = int(input("Enter n: "))
 
 our_list = []
-
 for i in range(1, n + 1):
-    result.append(list(range(1, n + 1)))
+    our_list.append(list(range(1, i + 1)))
 
-print(result)
+
+print(our_list)
+
+for row in our_list:
+    print(row)
+
+
