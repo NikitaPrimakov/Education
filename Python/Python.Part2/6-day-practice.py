@@ -109,3 +109,25 @@ for j in range(m):
 # Формат выходных данных
 # Программа должна вывести одно число – след заданной матрицы.
 
+n = int(input('Enter your count of rows: '))
+
+matrix = []
+
+sum_of_num = 0
+
+for i in range(n):
+    row = []
+    for j in range(n):
+        row.append(input())
+    matrix.append(row)
+
+for i in range(len(matrix)):
+    print(*matrix[i], end='\n')
+
+
+for i in range(n):
+    sum_of_num += int(matrix[i][i])
+
+print(sum_of_num)
+
+

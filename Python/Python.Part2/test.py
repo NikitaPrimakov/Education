@@ -11,23 +11,11 @@
 # Формат выходных данных
 # Программа должна вывести одно число – след заданной матрицы.
 
+# Вариант 2
 
-n = int(input('Enter your count of rows: '))
+# n = int(input('Enter your count of rows: '))
 
 matrix = []
 
-for i in range(n):
-    row = []
-    for j in range(n):
-        row.append(input())
-    matrix.append(row)
+# sum_of_num = 0
 
-# print(matrix)
-
-# for i in range(len(matrix)):
-#     print(*matrix[i], end='\n')
-
-for i in range(n):
-    for j in range(n):
-        print(matrix[i][j], end=' ')
-    print()
