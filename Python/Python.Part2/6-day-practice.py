@@ -131,3 +131,21 @@ for i in range(n):
 print(sum_of_num)
 
 
+# Вариант 2
+
+n = int(input('Enter your count of rows: '))
+matrix = []
+sum_of_num = 0
+
+for i in range(n):
+    str_of_num = input().split(' ')
+    for j in range(len(str_of_num)):
+        str_of_num[j] = int(str_of_num[j])
+    matrix.append(str_of_num)
+
+print(matrix)
+
+for i in range(n):
+    sum_of_num += int(matrix[i][i])
+
+print(sum_of_num)
