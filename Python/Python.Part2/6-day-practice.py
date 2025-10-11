@@ -149,3 +149,46 @@ for i in range(n):
     sum_of_num += int(matrix[i][i])
 
 print(sum_of_num)
+
+#------------------------------------
+# Задача 4
+# Больше среднего
+
+# Напишите программу, которая выводит количество элементов квадратной матрицы в каждой строке, больших среднего арифметического 
+# элементов данной строки.
+
+# Формат входных данных
+# На вход программе подается натуральное число n – количество строк и столбцов в матрице, затем элементы матрицы (целые числа) 
+# построчно через пробел.
+
+# Формат выходных данных
+# Программа должна вывести n чисел – для каждой строки количество элементов матрицы, больших среднего арифметического элементов данной 
+# строки.
+
+import math
+num = int(input())
+matrix = []
+average_sum = 0
+final_matrix = []
+
+
+for i in range(num):
+    str_of_num = input().split(' ')
+    for j in range(len(str_of_num)):
+        str_of_num[j] = int(str_of_num[j])
+    matrix.append(str_of_num)
+
+# print(matrix)
+
+for i in range(len(matrix)):
+    average_sum = 0
+    for j in matrix[i]:
+        average_sum += j
+    average_value = average_sum // len(matrix[i])
+    count = 0
+    for z in matrix[i]:
+        if z > average_value:
+            count += 1
+    final_matrix.append(count)
+
+print(*final_matrix, sep='\n')
