@@ -192,3 +192,37 @@ for i in range(len(matrix)):
     final_matrix.append(count)
 
 print(*final_matrix, sep='\n')
+
+
+#------------------------------------
+# Задача 5
+# Максимальный в области 1
+
+# Напишите программу, которая выводит максимальный элемент в заштрихованной области квадратной матрицы.
+
+
+# Формат входных данных
+# На вход программе подается натуральное число n – количество строк и столбцов в матрице, затем элементы матрицы (целые числа) 
+# построчно через пробел.
+
+# Формат выходных данных
+# Программа должна вывести одно число – максимальный элемент в заштрихованной области квадратной матрицы.
+
+num = int(input("Enter size of matrix: "))
+
+matrix = []
+
+max_num = -100
+
+for i in range(num):
+    row = input().split(' ')
+    for j in range(len(row)):
+        row[j] = int(row[j])
+    matrix.append(row)
+
+for i in range(num):
+    for j in range(num):
+        if i >= j:
+            if matrix[i][j] > max_num:
+                max_num = matrix[i][j]
+print(max_num)
