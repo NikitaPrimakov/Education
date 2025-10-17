@@ -15,8 +15,92 @@
 n = int(input('Enter count of rows: '))
 m = int(input('Enter count of columns: '))
 
-# matrix = []
+matrix = []
+for i in range(n):
+    row = []
+    for j in range(m):
+        row.append(str(i * j).ljust(3))
+    matrix.append(row)
 
-# for i in range(n):
-#     for j in range(m):
-        
+for row in matrix:
+    print(''.join(row))
+
+
+#--------------------------------------------
+# Задача №2
+
+
+# На вход программе подаются два натуральных числа n и m – количество строк и столбцов в матрице, затем n строк по m целых чисел в 
+# каждой, отделенных символом пробела.
+
+# Напишите программу, которая находит индексы (строку и столбец) первого вхождения максимального элемента.
+
+# Формат входных данных
+# На вход программе на разных строках подаются два числа n и m – количество строк и столбцов в матрице, затем сами элементы матрицы 
+# построчно через пробел.
+
+# Формат выходных данных
+# Программа должна вывести два числа: номер строки и номер столбца, в которых стоит наибольший элемент таблицы. Если таких элементов 
+# несколько, то выводится тот, у которого меньше номер строки, а если номера строк равны, то тот, у которого меньше номер столбца.
+
+# Примечание. Считайте, что нумерация строк и столбцов начинается с нуля.
+
+
+n = int(input('Enter count of rows: '))
+m = int(input('Enter count of columns: '))
+matrix = []
+
+for i in range(n):
+    row = input().split(' ')
+    for j in range(len(row)):
+        row[j] = int(row[j])
+    matrix.append(row)
+
+maxNum = -100
+num_of_row = 0
+num_of_column = 0 
+
+for i in range(n):
+    for j in range(m):
+        if maxNum < matrix[i][j]:
+            maxNum = matrix[i][j]
+            num_of_row = i
+            num_of_column = j
+
+print(num_of_row, num_of_column)
+
+
+#--------------------------------------------
+# Задача №3
+
+# Обмен столбцов ⏸️
+# Напишите программу, которая меняет местами столбцы в матрице.
+
+# Формат входных данных
+# На вход программе на разных строках подаются два натуральных числа n и m – количество строк и столбцов в матрице, 
+# затем элементы матрицы построчно через пробел, затем натуральные числа i и j – номера столбцов, подлежащих обмену.
+
+# Формат выходных данных
+# Программа должна вывести указанную таблицу с замененными столбцами.
+
+
+n = int(input("Enter count of rows: "))
+m = int(input("Enter count of columns: "))
+
+matrix = []
+
+for r in range(n):
+    row = input().split(' ')
+    for c in range(len(row)):
+        row[c] = int(row[c])
+    matrix.append(row)
+
+i, j = map(int, input().split())
+
+for r in range(len(matrix)):
+    matrix[r][i], matrix[r][j] = matrix[r][j], matrix[r][i]
+
+for r in range(n):
+    for c in range(m):
+        print(matrix[r][c], end=' ')
+    print()
