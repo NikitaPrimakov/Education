@@ -13,3 +13,9 @@
 
 # Примечание. Шахматная доска имеет вид:
 
+coordinatesOfTheHorse = input('Enter coordinates of the horse: ')
+
+if len(coordinatesOfTheHorse) == 2 and coordinatesOfTheHorse[0] in ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] and coordinatesOfTheHorse[1] in ['1', '2', '3', '4', '5', '6', '7', '8']:
+    print('YES')
+else:
+    print("ERROR")
