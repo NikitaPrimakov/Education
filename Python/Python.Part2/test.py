@@ -13,9 +13,20 @@
 
 # Примечание. Шахматная доска имеет вид:
 
-coordinatesOfTheHorse = input('Enter coordinates of the horse: ')
+n = 8
 
-if len(coordinatesOfTheHorse) == 2 and coordinatesOfTheHorse[0] in ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] and coordinatesOfTheHorse[1] in ['1', '2', '3', '4', '5', '6', '7', '8']:
-    print('YES')
-else:
-    print("ERROR")
+matrix = [['.']* n for _ in range(n)]
+
+eng_alph = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8}
+
+x = eng_alph[input('Enter x coordinat: ')]
+y = int(input('Enter y coordinat: '))
+
+print(f'x = {x}, y = {y}')
+
+matrix[x-1][y-1] = 'N'
+
+for r in range(n):                    
+    for c in range(n):
+        print(matrix[r][c], end=' ')
+    print()
