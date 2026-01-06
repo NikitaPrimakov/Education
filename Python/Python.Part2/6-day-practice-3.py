@@ -46,6 +46,35 @@ print(our_matrix[num])
 # Формат выходных данных
 # Программа должна вывести указанный вложенный список.
 
-str_one = input("Enter your string: ").split(' ')
+# Sample Input 1:
+# a b c d e f
+# 2
+# Sample Output 1:
 
-print(num)
+# [['a', 'b'], ['c', 'd'], ['e', 'f']]
+
+# str_one = input("Enter your string: ").split(' ')
+# num_one = int(input("Enter your num: "))
+# matrix = []
+
+
+# for i in range(0, len(str_one), num_one):
+#     chunk = str_one[i:i + num_one]
+#     matrix.append(chunk)
+
+# print(matrix)
+
+
+def chunked(num_one):
+    for i in range(0, len(str_one), num_one):
+        chunk = str_one[i:i + num_one]
+        matrix.append(chunk)
+    return matrix
+
+
+str_one = input("Enter your string: ").split(' ')
+num_one = int(input("Enter your num: "))
+matrix = []
+
+final_matrix = chunked(num_one)
+print(final_matrix)
