@@ -90,3 +90,93 @@ for i in range(n):
 
 for row in matrix:
     print(*row)
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Задача № 15
+# Заполнение 1
+# На вход программе подаются два натуральных числа n и m. 
+# Напишите программу, которая создает матрицу размером n×m и заполняет ее числами 
+# от 1 до n⋅m в соответствии с образцом.
+
+# Формат входных данных
+# На вход программе на одной строке подаются два натуральных числа n и 
+# m – количество строк и столбцов в матрице.
+
+# Формат выходных данных
+# Программа должна вывести матрицу в соответствии с образцом.
+
+# Примечание. Для вывода элементов матрицы как в примерах отводите ровно 
+# 3 символа на каждый элемент. Для этого используйте строковый метод ljust(). 
+# Можно обойтись и без ljust(), система примет и такое решение.
+
+import random
+
+# n = int(input("Enter n: "))
+# m = int(input("Enter m: "))
+
+n, m = map(int, input().split())
+
+endOfRange = n * m
+
+matrix = []
+
+for i in range(n):
+    row = []
+    for j in range(m):
+        row.append(random.randrange(1, endOfRange))
+    matrix.append(row)
+
+# for row in matrix:
+#     print(*row)
+
+for r in range(n):
+    for c in range(m):
+        print(str(matrix[r][c]).ljust(3), end='')
+    print()
+
+# Вариант, где идет по порядку
+n, m = map(int, input().split())
+
+matrix = []
+
+count = 1
+
+for i in range(n):
+    row = []
+    for j in range(m):
+        row.append(count)
+        count += 1
+    matrix.append(row)
+
+for r in range(n):
+    for c in range(m):
+        print(str(matrix[r][c]).ljust(3), end='')
+    print()
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Задача № 16
+
+# Заполнение 2
+
+# На вход программе подаются два натуральных числа n и m. 
+# Напишите программу, которая создает матрицу размером n×m, заполнив ее в соответствии с образцом.
+
+# Формат входных данных
+# На вход программе на одной строке подаются два натуральных числа n и m – количество строк и столбцов в матрице.
+
+# Формат выходных данных
+# Программа должна вывести указанную матрицу в соответствии с образцом.
+
+matrixOfNums = list()
+n, m = map(int, input().split())
+count = 1
+
+while count <= n:
+    matrix = []
+    for i in range(count, n * m + 1, n):
+        matrix.append(i)
+    
+    count += 1
+    matrixOfNums.append(matrix)
+
+for row in matrixOfNums:
+    print(*row)
