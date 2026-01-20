@@ -194,3 +194,27 @@ for row in matrixOfNums:
 # Формат выходных данных
 # Программа должна вывести указанную матрицу в соответствии с образцом: разместить единицы на главной и побочной диагоналях, 
 # остальные позиции матрицы заполнить нулями.
+
+n = int(input("Enter n: "))
+
+matrix = list()
+
+for i in range(n):
+    row = []
+    for j in range(n):
+        row.append(0)
+    matrix.append(row)
+
+for i in range(len(matrix)):
+    for j in range(len(matrix)):
+        matrix[i][i] = 1
+        matrix[i][n - i - 1]  = 1
+
+for r in range(n):
+    for c in range(n):
+        print(str(matrix[r][c]).ljust(3), end=' ')
+    print()
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Задача № 18
+
